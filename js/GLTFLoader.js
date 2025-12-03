@@ -1,11 +1,3 @@
-/**
- * @author Rich Tibbett / https://github.com/richtr
- * @author mrdoob / http://mrdoob.com/
- * @author Tony Parisi / http://www.tonyparisi.com/
- * @author Takahiro / https://github.com/takahirox
- * @author Don McCurdy / https://www.donmccurdy.com
- */
-
 THREE.GLTFLoader = ( function () {
 
 	function GLTFLoader( manager ) {
@@ -274,13 +266,7 @@ THREE.GLTFLoader = ( function () {
 		MSFT_TEXTURE_DDS: 'MSFT_texture_dds'
 	};
 
-	/**
-	 * DDS Texture Extension
-	 *
-	 * Specification:
-	 * https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_texture_dds
-	 *
-	 */
+
 	function GLTFTextureDDSExtension() {
 
 		if ( ! THREE.DDSLoader ) {
@@ -294,11 +280,6 @@ THREE.GLTFLoader = ( function () {
 
 	}
 
-	/**
-	 * Lights Extension
-	 *
-	 * Specification: PENDING
-	 */
 	function GLTFLightsExtension( json ) {
 
 		this.name = EXTENSIONS.KHR_LIGHTS_PUNCTUAL;
@@ -363,11 +344,7 @@ THREE.GLTFLoader = ( function () {
 
 	};
 
-	/**
-	 * Unlit Materials Extension (pending)
-	 *
-	 * PR: https://github.com/KhronosGroup/glTF/pull/1163
-	 */
+	
 	function GLTFMaterialsUnlitExtension() {
 
 		this.name = EXTENSIONS.KHR_MATERIALS_UNLIT;
@@ -480,11 +457,6 @@ THREE.GLTFLoader = ( function () {
 
 	}
 
-	/**
-	 * DRACO Mesh Compression Extension
-	 *
-	 * Specification: https://github.com/KhronosGroup/glTF/pull/874
-	 */
 	function GLTFDracoMeshCompressionExtension( json, dracoLoader ) {
 
 		if ( ! dracoLoader ) {
@@ -558,11 +530,7 @@ THREE.GLTFLoader = ( function () {
 
 	};
 
-	/**
-	 * Texture Transform Extension
-	 *
-	 * Specification:
-	 */
+	
 	function GLTFTextureTransformExtension() {
 
 		this.name = EXTENSIONS.KHR_TEXTURE_TRANSFORM;
@@ -603,11 +571,7 @@ THREE.GLTFLoader = ( function () {
 
 	};
 
-	/**
-	 * Specular-Glossiness Extension
-	 *
-	 * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness
-	 */
+	
 	function GLTFMaterialsPbrSpecularGlossinessExtension() {
 
 		return {
