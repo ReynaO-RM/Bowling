@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Bowling VR</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+		<style>
+			body {
+				margin: 0px;
+				overflow: hidden;
+			}
+			
+			/* Botón VR */
+			#vrButton {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				z-index: 1000;
+				padding: 12px 24px;
+				background: #4CAF50;
+				color: white;
+				border: none;
+				border-radius: 8px;
+				font-size: 16px;
+				font-weight: bold;
+				cursor: pointer;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			
+			#vrButton:hover {
+				background: #45a049;
+				transform: translateY(-2px);
+				box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+			}
+			
+			#vrButton:active {
+				transform: translateY(0);
+			}
+			
+			/* Indicador de modo VR */
+			.vr-indicator {
+				position: absolute;
+				top: 70px;
+				right: 20px;
+				z-index: 999;
+				color: white;
+				font-family: monospace;
+				font-size: 14px;
+				background: rgba(0,0,0,0.7);
+				padding: 5px 10px;
+				border-radius: 5px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Botón VR -->
+		<button id="vrButton">Realidad Virtual</button>
+		<div id="vrIndicator" class="vr-indicator">Modo VR: DESACTIVADO</div>
+		
+		<div id="container"></div>
+
+		<!-- Scripts principales -->
+		<script src="js/ammo.js"></script>
+		<script src="js/three.js"></script>
+		<script src="js/GLTFLoader.js"></script>
+		<script src="js/scores.js"></script>
+		<script src="js/bowlphysics.js"></script>
+		
+		<!-- Scripts VR (añadir después de three.js) -->
+		<!-- Para Three.js r90-r105 (compatibilidad Quest) -->
+		<script src="https://cdn.jsdelivr.net/npm/three@0.105.0/examples/js/controls/VRControls.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three@0.105.0/examples/js/effects/VREffect.js"></script>
+		
+		<!-- Polyfill para WebXR -->
+		<script src="https://unpkg.com/webxr-polyfill@latest/dist/webxr-polyfill.js"></script>
+		
+		<!-- Nuestro setup VR -->
+		<script src="vr-setup.js"></script>
+		
+		<!-- Juego principal (debe ir después de vr-setup) -->
+		<script src="js/bowlchallenge.js"></script>
+		
+		<script>
+			// Inicializar VR después de cargar todo
+			window.addEventListener('load', function() {
+				// El VRManager se inicializará desde bowlchallenge.js modificado
+				console.log('Bowling VR cargado');
+			});
+		</script>
+	</body>
+</html>
